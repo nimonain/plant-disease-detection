@@ -1,0 +1,1117 @@
+{
+  "schemaVersion": "1.0.0",
+  "dataset": "PlantVillage",
+  "notes": [
+    "Class names should be checked against the exact labels used by your trained model and dataset version.",
+    "Descriptions and recommendations are general educational guidance, not a definitive diagnosis or pesticide prescription.",
+    "Healthy predictions do not rule out early-stage, hidden, root, or diseases absent from the model classes."
+  ],
+  "diseases": [
+    {
+      "className": "Apple___Apple_scab",
+      "crop": "Apple",
+      "diseaseName": "Apple Scab",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Venturia inaequalis"
+      },
+      "description": "A fungal disease that causes olive-green to dark, scabby lesions on leaves and fruit. Severe infection may distort leaves and cause premature leaf drop.",
+      "symptoms": [
+        "Olive-green or dark spots on leaves",
+        "Scabby lesions on fruit",
+        "Leaf distortion or premature leaf drop"
+      ],
+      "prevention": [
+        "Remove fallen infected leaves",
+        "Prune to improve airflow",
+        "Avoid prolonged leaf wetness"
+      ],
+      "recommendedActions": [
+        "Remove infected fallen plant material",
+        "Monitor new growth",
+        "Consult local agricultural guidance about preventive fungicides if needed"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by fungal spores, especially in wet conditions",
+      "treatmentNote": "Treatment timing and products depend on local conditions; follow local agricultural advice and product labels.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Apple___Black_rot",
+      "crop": "Apple",
+      "diseaseName": "Apple Black Rot",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Diplodia seriata (also known as Botryosphaeria obtusa)"
+      },
+      "description": "A fungal disease affecting apple leaves, fruit, and woody tissue. Leaf spots may have tan centers and dark margins; fruit may rot.",
+      "symptoms": [
+        "Tan or brown leaf spots with dark margins",
+        "Rotting fruit",
+        "Dead branches or cankers"
+      ],
+      "prevention": [
+        "Remove mummified fruit and infected debris",
+        "Prune dead branches",
+        "Avoid unnecessary tree injuries"
+      ],
+      "recommendedActions": [
+        "Remove infected fruit and dead wood",
+        "Sanitize pruning tools appropriately",
+        "Seek expert advice if branch cankers are present"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread from infected plant material by spores",
+      "treatmentNote": "Management focuses on sanitation and locally recommended orchard practices.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Apple___Cedar_apple_rust",
+      "crop": "Apple",
+      "diseaseName": "Cedar Apple Rust",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Gymnosporangium juniperi-virginianae"
+      },
+      "description": "A rust disease that produces yellow-orange spots on apple leaves and may affect fruit. The pathogen alternates between apple and susceptible juniper hosts.",
+      "symptoms": [
+        "Yellow-orange leaf spots",
+        "Dark margins around some spots",
+        "Possible lesions on fruit"
+      ],
+      "prevention": [
+        "Use locally recommended resistant varieties where available",
+        "Manage nearby susceptible junipers where practical and lawful",
+        "Follow local orchard disease guidance"
+      ],
+      "recommendedActions": [
+        "Check for characteristic orange lesions",
+        "Monitor other trees",
+        "Ask a local adviser whether preventive treatment is appropriate"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Requires alternate hosts and spreads through spores",
+      "treatmentNote": "Preventive treatment timing is location- and season-dependent.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Apple___healthy",
+      "crop": "Apple",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Maintain seasonal pruning and balanced nutrition",
+        "Inspect leaves and fruit regularly",
+        "Keep the orchard floor free of diseased debris"
+      ],
+      "recommendedActions": [
+        "Continue routine plant care",
+        "Monitor new growth for changes",
+        "Seek advice if symptoms appear despite a healthy prediction"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Blueberry___healthy",
+      "crop": "Blueberry",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Maintain acidic soil suitable for blueberries",
+        "Provide consistent moisture and good drainage",
+        "Inspect plants regularly"
+      ],
+      "recommendedActions": [
+        "Continue routine plant care",
+        "Monitor new growth",
+        "Seek advice if symptoms appear despite a healthy prediction"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Cherry_(including_sour)___Powdery_mildew",
+      "crop": "Cherry",
+      "diseaseName": "Cherry Powdery Mildew",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Powdery mildew fungi, commonly Podosphaera species"
+      },
+      "description": "A fungal disease that creates white powder-like growth on leaves and shoots; young leaves may curl or become distorted.",
+      "symptoms": [
+        "White powdery growth",
+        "Curled or distorted young leaves",
+        "Reduced shoot growth in severe cases"
+      ],
+      "prevention": [
+        "Improve canopy airflow",
+        "Avoid excessive nitrogen fertilization",
+        "Monitor susceptible new growth"
+      ],
+      "recommendedActions": [
+        "Remove badly affected shoots where practical",
+        "Improve spacing and ventilation",
+        "Use only locally approved management options if needed"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by airborne spores",
+      "treatmentNote": "Choose management measures according to local crop guidance.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Cherry_(including_sour)___healthy",
+      "crop": "Cherry",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Maintain canopy airflow",
+        "Water appropriately",
+        "Inspect leaves and shoots regularly"
+      ],
+      "recommendedActions": [
+        "Continue routine plant care",
+        "Monitor for new symptoms"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "crop": "Corn (Maize)",
+      "diseaseName": "Cercospora / Gray Leaf Spot",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Cercospora zeae-maydis and related species"
+      },
+      "description": "A leaf disease that produces elongated, rectangular gray or tan lesions, often limited by leaf veins.",
+      "symptoms": [
+        "Rectangular gray or tan lesions",
+        "Lesions between leaf veins",
+        "Premature leaf death in severe infections"
+      ],
+      "prevention": [
+        "Rotate crops where suitable",
+        "Manage infected crop residue",
+        "Choose resistant hybrids where available"
+      ],
+      "recommendedActions": [
+        "Inspect lower and upper leaves",
+        "Monitor disease progression around important growth stages",
+        "Consult a local crop adviser about treatment needs"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by spores from infected residue",
+      "treatmentNote": "Fungicide decisions depend on crop stage, weather, disease pressure, and local guidance.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Corn_(maize)___Common_rust_",
+      "crop": "Corn (Maize)",
+      "diseaseName": "Common Rust",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Puccinia sorghi"
+      },
+      "description": "A rust disease producing raised reddish-brown to cinnamon-colored pustules on corn leaves.",
+      "symptoms": [
+        "Small raised rust-colored pustules",
+        "Pustules on leaf surfaces",
+        "Leaf damage when infection is severe"
+      ],
+      "prevention": [
+        "Grow resistant hybrids where available",
+        "Monitor fields during favorable weather",
+        "Maintain general crop health"
+      ],
+      "recommendedActions": [
+        "Inspect the extent of rust and crop growth stage",
+        "Seek local advice if infection is widespread"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Spores can spread through the air",
+      "treatmentNote": "Whether treatment is warranted depends on crop stage and local recommendations.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Corn_(maize)___Northern_Leaf_Blight",
+      "crop": "Corn (Maize)",
+      "diseaseName": "Northern Leaf Blight",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Exserohilum turcicum"
+      },
+      "description": "A fungal disease that causes long, cigar-shaped gray-green lesions on corn leaves; lesions may merge and kill leaf tissue.",
+      "symptoms": [
+        "Long cigar-shaped lesions",
+        "Gray-green to tan leaf damage",
+        "Lesions merging across leaf tissue"
+      ],
+      "prevention": [
+        "Use resistant hybrids",
+        "Rotate crops where suitable",
+        "Manage infected crop residue"
+      ],
+      "recommendedActions": [
+        "Monitor leaves near the ear and upper canopy",
+        "Check progression around flowering",
+        "Consult local crop guidance for management decisions"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by spores from infected residue and plants",
+      "treatmentNote": "Management depends on disease pressure, crop stage, and local guidance.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Corn_(maize)___healthy",
+      "crop": "Corn (Maize)",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Monitor crop growth and weeds",
+        "Rotate crops where suitable",
+        "Maintain appropriate soil fertility"
+      ],
+      "recommendedActions": [
+        "Continue routine crop monitoring",
+        "Inspect leaves regularly"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Grape___Black_rot",
+      "crop": "Grape",
+      "diseaseName": "Black Rot",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Guignardia bidwellii"
+      },
+      "description": "A fungal disease that causes brown leaf spots and can infect berries, which may shrivel into hard black mummies.",
+      "symptoms": [
+        "Brown leaf spots with dark specks",
+        "Shriveled black berries",
+        "Fruit loss"
+      ],
+      "prevention": [
+        "Remove mummified berries and infected debris",
+        "Maintain an open canopy",
+        "Follow local vineyard sanitation guidance"
+      ],
+      "recommendedActions": [
+        "Remove infection sources where practical",
+        "Monitor leaves and fruit",
+        "Consult local advice about preventive disease management"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by spores from infected plant material",
+      "treatmentNote": "Preventive management timing depends on local conditions.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Grape___Esca_(Black_Measles)",
+      "crop": "Grape",
+      "diseaseName": "Esca (Black Measles)",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal complex",
+        "organism": "A complex of wood-colonizing fungi"
+      },
+      "description": "A grapevine trunk disease complex that may cause interveinal yellow or red leaf striping, berry speckling, and internal wood damage.",
+      "symptoms": [
+        "Interveinal yellow or red striping",
+        "Dark speckles on berries",
+        "Wood discoloration or vine decline"
+      ],
+      "prevention": [
+        "Avoid unnecessary trunk injuries",
+        "Protect pruning wounds where locally recommended",
+        "Use sound vineyard pruning practices"
+      ],
+      "recommendedActions": [
+        "Have vines with recurring symptoms or wood damage assessed",
+        "Track affected vines over time",
+        "Seek vineyard specialist advice"
+      ],
+      "severity": "Potentially serious for affected vines",
+      "spreadRisk": "Associated with fungal infection of woody tissues; spread dynamics vary",
+      "treatmentNote": "There is no simple curative leaf spray for established esca.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+      "crop": "Grape",
+      "diseaseName": "Leaf Blight (Isariopsis Leaf Spot)",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Pseudocercospora vitis (historically associated with Isariopsis)"
+      },
+      "description": "A grape leaf disease that can produce brown to dark spots and premature leaf drop.",
+      "symptoms": [
+        "Brown or dark leaf spots",
+        "Spots expanding over time",
+        "Premature leaf drop"
+      ],
+      "prevention": [
+        "Improve canopy ventilation",
+        "Remove infected leaf debris",
+        "Avoid prolonged leaf wetness"
+      ],
+      "recommendedActions": [
+        "Monitor spread across the vine",
+        "Confirm diagnosis because other leaf-spot diseases look similar",
+        "Follow local vineyard guidance"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by spores under favorable conditions",
+      "treatmentNote": "Use locally approved measures only after diagnosis is reasonably confirmed.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Grape___healthy",
+      "crop": "Grape",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Maintain canopy airflow",
+        "Prune appropriately",
+        "Monitor leaves and fruit"
+      ],
+      "recommendedActions": [
+        "Continue routine vineyard care",
+        "Inspect for new symptoms"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Orange___Haunglongbing_(Citrus_greening)",
+      "crop": "Orange",
+      "diseaseName": "Huanglongbing (Citrus Greening)",
+      "status": "diseased",
+      "cause": {
+        "type": "Bacterial disease",
+        "organism": "Candidatus Liberibacter species; commonly spread by citrus psyllids"
+      },
+      "description": "A serious citrus disease that causes blotchy, often asymmetric yellow mottling on leaves and may produce small, misshapen or poorly colored fruit.",
+      "symptoms": [
+        "Blotchy asymmetric yellow leaf mottling",
+        "Small or misshapen fruit",
+        "Declining tree health"
+      ],
+      "prevention": [
+        "Use certified healthy nursery stock",
+        "Monitor for citrus psyllids",
+        "Follow local plant-health and quarantine guidance"
+      ],
+      "recommendedActions": [
+        "Contact a local plant-health authority or citrus specialist for confirmation",
+        "Do not move potentially infected planting material",
+        "Follow official instructions if infection is confirmed"
+      ],
+      "severity": "Serious",
+      "spreadRisk": "Can spread through infected planting material and psyllid vectors",
+      "treatmentNote": "There is no established cure for an infected tree; management focuses on prevention and official disease control.",
+      "disclaimer": "Image-based prediction; prompt expert confirmation is recommended."
+    },
+    {
+      "className": "Peach___Bacterial_spot",
+      "crop": "Peach",
+      "diseaseName": "Bacterial Spot",
+      "status": "diseased",
+      "cause": {
+        "type": "Bacterial",
+        "organism": "Xanthomonas arboricola pv. pruni"
+      },
+      "description": "A bacterial disease causing small dark angular leaf spots, sometimes with yellow halos and holes, as well as pitted fruit lesions.",
+      "symptoms": [
+        "Small dark angular leaf spots",
+        "Yellow halos or holes in leaves",
+        "Pitted lesions on fruit"
+      ],
+      "prevention": [
+        "Use healthy nursery stock",
+        "Choose less susceptible cultivars where available",
+        "Avoid handling wet foliage and reduce prolonged leaf wetness"
+      ],
+      "recommendedActions": [
+        "Remove badly affected fallen material",
+        "Confirm the diagnosis",
+        "Seek local advice on preventive bacterial disease management"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread through rain splash and infected plant material",
+      "treatmentNote": "Available management options vary by location; follow local guidance and product labels.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Peach___healthy",
+      "crop": "Peach",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Maintain appropriate irrigation and pruning",
+        "Keep orchard areas sanitary",
+        "Inspect leaves and fruit regularly"
+      ],
+      "recommendedActions": [
+        "Continue routine plant care",
+        "Monitor new growth"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Pepper,_bell___Bacterial_spot",
+      "crop": "Bell Pepper",
+      "diseaseName": "Bacterial Spot",
+      "status": "diseased",
+      "cause": {
+        "type": "Bacterial",
+        "organism": "Xanthomonas species complex"
+      },
+      "description": "A bacterial disease causing dark leaf spots, sometimes with yellow halos, and raised scabby lesions on fruit.",
+      "symptoms": [
+        "Dark or water-soaked leaf spots",
+        "Yellow halos",
+        "Raised scabby fruit lesions"
+      ],
+      "prevention": [
+        "Use disease-free seed and transplants",
+        "Avoid overhead irrigation",
+        "Rotate crops and sanitize tools"
+      ],
+      "recommendedActions": [
+        "Avoid handling wet plants",
+        "Remove severely affected material where practical",
+        "Seek local advice about bacterial disease management"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by splashing water, handling, and infected plant material",
+      "treatmentNote": "Ordinary fungicides do not cure bacterial infection; use only locally approved measures.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Pepper,_bell___healthy",
+      "crop": "Bell Pepper",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Maintain even watering",
+        "Keep soil healthy and well drained",
+        "Inspect leaves and fruit regularly"
+      ],
+      "recommendedActions": [
+        "Continue routine plant care",
+        "Monitor for new symptoms"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Potato___Early_blight",
+      "crop": "Potato",
+      "diseaseName": "Early Blight",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Alternaria solani"
+      },
+      "description": "A fungal disease that causes brown leaf lesions with concentric rings, often surrounded by yellowing and appearing first on older leaves.",
+      "symptoms": [
+        "Brown target-like spots",
+        "Concentric rings within lesions",
+        "Yellowing and premature leaf drop"
+      ],
+      "prevention": [
+        "Rotate crops",
+        "Manage volunteer potatoes and infected residue",
+        "Maintain balanced plant nutrition"
+      ],
+      "recommendedActions": [
+        "Remove severely diseased leaves when practical",
+        "Monitor disease progression",
+        "Follow local crop guidance for treatment decisions"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread through spores from infected plant debris",
+      "treatmentNote": "Treatment depends on weather, crop stage, disease pressure, and local recommendations.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Potato___Late_blight",
+      "crop": "Potato",
+      "diseaseName": "Late Blight",
+      "status": "diseased",
+      "cause": {
+        "type": "Oomycete",
+        "organism": "Phytophthora infestans"
+      },
+      "description": "A rapidly progressing disease that causes water-soaked dark leaf lesions and may show pale growth on leaf undersides in humid conditions.",
+      "symptoms": [
+        "Irregular water-soaked dark lesions",
+        "Pale growth on leaf undersides in humid weather",
+        "Rapid foliage collapse"
+      ],
+      "prevention": [
+        "Use certified seed potatoes",
+        "Remove volunteer potatoes",
+        "Monitor local blight alerts and reduce prolonged leaf wetness"
+      ],
+      "recommendedActions": [
+        "Treat suspected late blight as urgent",
+        "Avoid moving potentially infected plants or tubers",
+        "Contact an agricultural extension service for confirmation and control advice"
+      ],
+      "severity": "Potentially severe",
+      "spreadRisk": "Can spread rapidly through airborne spores and infected plant material",
+      "treatmentNote": "Prompt, locally guided management is important; follow approved product labels.",
+      "disclaimer": "Image-based prediction; prompt expert confirmation is recommended."
+    },
+    {
+      "className": "Potato___healthy",
+      "crop": "Potato",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Use certified seed potatoes",
+        "Rotate crops",
+        "Monitor for blight symptoms"
+      ],
+      "recommendedActions": [
+        "Continue routine crop monitoring",
+        "Inspect foliage regularly"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Raspberry___healthy",
+      "crop": "Raspberry",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Maintain well-drained soil",
+        "Remove dead canes",
+        "Monitor for pests and leaf symptoms"
+      ],
+      "recommendedActions": [
+        "Continue routine plant care",
+        "Inspect new growth regularly"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Soybean___healthy",
+      "crop": "Soybean",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Monitor for insects and leaf spots",
+        "Manage weeds",
+        "Maintain suitable soil fertility"
+      ],
+      "recommendedActions": [
+        "Continue routine crop monitoring",
+        "Inspect leaves regularly"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Squash___Powdery_mildew",
+      "crop": "Squash",
+      "diseaseName": "Powdery Mildew",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Powdery mildew fungi, including Podosphaera xanthii"
+      },
+      "description": "A fungal disease that produces white flour-like patches on leaves and can lead to yellowing and drying of foliage.",
+      "symptoms": [
+        "White powdery patches",
+        "Leaf yellowing",
+        "Drying foliage in severe cases"
+      ],
+      "prevention": [
+        "Provide adequate spacing",
+        "Improve airflow",
+        "Use resistant varieties where available"
+      ],
+      "recommendedActions": [
+        "Remove severely affected leaves when practical",
+        "Monitor nearby leaves",
+        "Use locally approved measures if needed"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by airborne spores",
+      "treatmentNote": "Choose management options based on local crop guidance and product labels.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Strawberry___Leaf_scorch",
+      "crop": "Strawberry",
+      "diseaseName": "Leaf Scorch",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Diplocarpon earlianum"
+      },
+      "description": "A fungal disease that causes numerous reddish-purple to dark leaf spots; severe infection can make foliage appear scorched.",
+      "symptoms": [
+        "Small reddish-purple or dark spots",
+        "Scorched-looking leaves",
+        "Reduced healthy leaf area"
+      ],
+      "prevention": [
+        "Use healthy planting material",
+        "Remove infected old leaves",
+        "Improve airflow and avoid prolonged leaf wetness"
+      ],
+      "recommendedActions": [
+        "Remove badly affected foliage without damaging the crown",
+        "Monitor new growth",
+        "Seek confirmation if symptoms continue to spread"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread through spores and infected foliage",
+      "treatmentNote": "Follow local strawberry disease guidance for any treatment.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Strawberry___healthy",
+      "crop": "Strawberry",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Maintain good drainage",
+        "Remove dead foliage",
+        "Avoid prolonged leaf wetness"
+      ],
+      "recommendedActions": [
+        "Continue routine plant care",
+        "Monitor for new symptoms"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Tomato___Bacterial_spot",
+      "crop": "Tomato",
+      "diseaseName": "Bacterial Spot",
+      "status": "diseased",
+      "cause": {
+        "type": "Bacterial",
+        "organism": "Xanthomonas species"
+      },
+      "description": "A bacterial disease that produces small dark, sometimes water-soaked leaf spots with yellow margins; fruit can develop raised scabby spots.",
+      "symptoms": [
+        "Small dark leaf spots",
+        "Yellow margins around lesions",
+        "Raised or scabby fruit spots"
+      ],
+      "prevention": [
+        "Use clean seed and transplants",
+        "Rotate crops",
+        "Avoid overhead watering and sanitize tools"
+      ],
+      "recommendedActions": [
+        "Avoid handling wet plants",
+        "Remove severely affected material where practical",
+        "Seek local advice about bacterial disease management"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread through splashing water, handling, and infected plant material",
+      "treatmentNote": "Use only locally approved measures; fungicides do not cure bacterial infection.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Tomato___Early_blight",
+      "crop": "Tomato",
+      "diseaseName": "Early Blight",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Alternaria solani"
+      },
+      "description": "A fungal disease causing brown leaf spots with concentric rings, often beginning on older leaves and accompanied by yellowing.",
+      "symptoms": [
+        "Brown spots with concentric rings",
+        "Yellowing around lesions",
+        "Premature leaf drop"
+      ],
+      "prevention": [
+        "Rotate crops",
+        "Remove infected debris",
+        "Mulch to reduce soil splash and water near the soil"
+      ],
+      "recommendedActions": [
+        "Remove affected lower leaves when practical",
+        "Avoid wetting foliage",
+        "Monitor for upward spread"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by spores from infected plant debris",
+      "treatmentNote": "Follow local crop guidance when considering fungicides.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Tomato___Late_blight",
+      "crop": "Tomato",
+      "diseaseName": "Late Blight",
+      "status": "diseased",
+      "cause": {
+        "type": "Oomycete",
+        "organism": "Phytophthora infestans"
+      },
+      "description": "A rapidly spreading disease causing irregular, water-soaked brown lesions; pale growth may appear on leaf undersides in humid conditions.",
+      "symptoms": [
+        "Large irregular dark lesions",
+        "Water-soaked leaf tissue",
+        "Pale growth underneath in humid weather"
+      ],
+      "prevention": [
+        "Use healthy transplants",
+        "Manage volunteer potatoes and tomatoes",
+        "Avoid prolonged leaf wetness and monitor disease alerts"
+      ],
+      "recommendedActions": [
+        "Act promptly if suspected",
+        "Avoid moving potentially infected plant material",
+        "Contact local agricultural experts for confirmation and control advice"
+      ],
+      "severity": "Potentially severe",
+      "spreadRisk": "Can spread rapidly in favorable weather",
+      "treatmentNote": "Prompt local guidance is important; use only approved products according to label directions.",
+      "disclaimer": "Image-based prediction; prompt expert confirmation is recommended."
+    },
+    {
+      "className": "Tomato___Leaf_Mold",
+      "crop": "Tomato",
+      "diseaseName": "Leaf Mold",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Passalora fulva (formerly Cladosporium fulvum)"
+      },
+      "description": "A fungal disease where pale yellow patches appear on upper leaf surfaces and olive-green to brown velvety growth develops underneath.",
+      "symptoms": [
+        "Yellow patches on upper leaf surfaces",
+        "Olive-green or brown growth beneath leaves",
+        "Leaf drying in severe cases"
+      ],
+      "prevention": [
+        "Reduce greenhouse humidity",
+        "Improve ventilation and plant spacing",
+        "Use resistant varieties where available"
+      ],
+      "recommendedActions": [
+        "Remove heavily infected leaves",
+        "Improve air circulation",
+        "Avoid persistent condensation on foliage"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by spores, especially in humid conditions",
+      "treatmentNote": "Adapt management to growing conditions and local guidance.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Tomato___Septoria_leaf_spot",
+      "crop": "Tomato",
+      "diseaseName": "Septoria Leaf Spot",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Septoria lycopersici"
+      },
+      "description": "A leaf disease producing many small circular spots with pale gray centers and dark margins, often followed by yellowing and leaf drop.",
+      "symptoms": [
+        "Small circular spots with gray centers",
+        "Dark lesion margins",
+        "Yellowing and leaf drop"
+      ],
+      "prevention": [
+        "Remove crop residue",
+        "Rotate crops",
+        "Mulch to reduce soil splash and avoid overhead irrigation"
+      ],
+      "recommendedActions": [
+        "Remove affected lower leaves when feasible",
+        "Keep foliage dry",
+        "Monitor nearby plants for new spots"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread by water splash and infected debris",
+      "treatmentNote": "Use locally recommended management measures when necessary.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "crop": "Tomato",
+      "diseaseName": "Two-Spotted Spider Mite",
+      "status": "pest",
+      "cause": {
+        "type": "Pest",
+        "organism": "Tetranychus urticae"
+      },
+      "description": "Tiny mites feed on leaf cells, causing fine yellow stippling, bronzing, drying, and sometimes fine webbing.",
+      "symptoms": [
+        "Fine yellow stippling",
+        "Bronzed or dry leaves",
+        "Fine webbing on heavier infestations"
+      ],
+      "prevention": [
+        "Inspect leaf undersides regularly",
+        "Manage weeds and dust",
+        "Conserve beneficial predatory mites where possible"
+      ],
+      "recommendedActions": [
+        "Inspect with a magnifier",
+        "Isolate affected potted plants where practical",
+        "Use an appropriate locally approved mite-control method if needed"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Mites can spread between nearby plants",
+      "treatmentNote": "Avoid indiscriminate insecticide use, which can worsen mite outbreaks.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Tomato___Target_Spot",
+      "crop": "Tomato",
+      "diseaseName": "Target Spot",
+      "status": "diseased",
+      "cause": {
+        "type": "Fungal",
+        "organism": "Corynespora cassiicola"
+      },
+      "description": "A fungal disease producing brown circular lesions that may show concentric rings and yellow margins; stems and fruit can also be affected.",
+      "symptoms": [
+        "Brown circular leaf lesions",
+        "Concentric rings in some lesions",
+        "Yellow margins or fruit lesions"
+      ],
+      "prevention": [
+        "Improve airflow",
+        "Reduce leaf wetness",
+        "Remove crop residue and rotate crops where feasible"
+      ],
+      "recommendedActions": [
+        "Remove severely affected leaves when practical",
+        "Monitor disease progression",
+        "Confirm diagnosis because symptoms can resemble other leaf spots"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread through spores under favorable conditions",
+      "treatmentNote": "Follow local recommendations for any crop protection products.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "crop": "Tomato",
+      "diseaseName": "Tomato Yellow Leaf Curl Virus",
+      "status": "diseased",
+      "cause": {
+        "type": "Viral",
+        "organism": "Begomovirus complex, commonly transmitted by whiteflies"
+      },
+      "description": "A viral disease that causes upward leaf curling, yellowing, stunted growth, and reduced fruit production.",
+      "symptoms": [
+        "Upward curling of young leaves",
+        "Yellowing",
+        "Stunted plant growth"
+      ],
+      "prevention": [
+        "Use healthy transplants",
+        "Monitor and manage whiteflies",
+        "Manage weeds and use suitable resistant varieties where available"
+      ],
+      "recommendedActions": [
+        "Confirm the diagnosis",
+        "Manage whiteflies through integrated pest management",
+        "Remove severely infected plants when appropriate to reduce infection sources"
+      ],
+      "severity": "Potentially serious",
+      "spreadRisk": "Can spread through whitefly vectors and infected plants",
+      "treatmentNote": "Viral infection cannot be cured with fungicides; prevention and vector management are important.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Tomato___Tomato_mosaic_virus",
+      "crop": "Tomato",
+      "diseaseName": "Tomato Mosaic Virus",
+      "status": "diseased",
+      "cause": {
+        "type": "Viral",
+        "organism": "Tomato mosaic virus (ToMV)"
+      },
+      "description": "A viral disease causing light and dark green mosaic patterns, leaf distortion, and reduced plant growth.",
+      "symptoms": [
+        "Mottled light and dark green leaves",
+        "Narrow or distorted leaves",
+        "Reduced growth"
+      ],
+      "prevention": [
+        "Use clean seed and healthy transplants",
+        "Sanitize hands and tools",
+        "Avoid tobacco contamination during plant handling"
+      ],
+      "recommendedActions": [
+        "Isolate suspected plants",
+        "Handle healthy plants before infected plants",
+        "Disinfect tools with a suitable method and confirm the diagnosis"
+      ],
+      "severity": "Variable",
+      "spreadRisk": "Can spread mechanically through contaminated hands, tools, and plant material",
+      "treatmentNote": "There is no curative antiviral spray; prevention and sanitation are key.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    },
+    {
+      "className": "Tomato___healthy",
+      "crop": "Tomato",
+      "diseaseName": "Healthy",
+      "status": "healthy",
+      "cause": {
+        "type": "Not applicable",
+        "organism": null
+      },
+      "description": "No target disease symptoms were identified by the model in the submitted image.",
+      "symptoms": [
+        "No clear symptoms of the dataset's target diseases visible in the image"
+      ],
+      "prevention": [
+        "Water near the soil surface",
+        "Maintain good airflow",
+        "Inspect leaf undersides regularly"
+      ],
+      "recommendedActions": [
+        "Continue routine plant care",
+        "Monitor new growth",
+        "Seek advice if symptoms appear despite a healthy prediction"
+      ],
+      "severity": "Not applicable",
+      "spreadRisk": "Not applicable based on this prediction",
+      "treatmentNote": "A healthy image classification does not rule out early, hidden, root, or unrepresented diseases.",
+      "disclaimer": "Image-based prediction; confirm uncertain cases."
+    }
+  ]
+}

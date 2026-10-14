@@ -1,0 +1,10 @@
+fastapi>=0.110,<1.0
+uvicorn[standard]>=0.29,<1.0
+python-multipart>=0.0.9
+pillow>=10.3
+joblib>=1.4,<2.0
+numpy>=1.26,<2.2
+scikit-learn==1.6.1
+scikit-image>=0.24,<1.0
+opencv-python-headless>=4.10,<5.0
+tensorflow>=2.19,<2.21
