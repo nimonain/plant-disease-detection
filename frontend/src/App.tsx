@@ -55,6 +55,34 @@ const STATUS_TIMEOUT_MS = 5000;
 const PREDICTION_TIMEOUT_MS = 60000;
 const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/bmp"];
 const API_BASE_URL = (import.meta.env.VITE_API_URL ?? "").trim().replace(/\/+$/, "");
+const TOUR_COMPLETED_KEY = "plant-disease-detection-tour-completed";
+const TOUR_STEPS = [
+  {
+    target: "settings",
+    title: "Choose how to analyze",
+    description: "Use Single for one leaf or Batch for up to five images. If multiple models are available, choose one here.",
+  },
+  {
+    target: "upload",
+    title: "Add a leaf image",
+    description: "Drop an image here or browse your files. JPEG, PNG, WEBP, and BMP images up to 10 MB are supported.",
+  },
+  {
+    target: "camera",
+    title: "Take a photo instead",
+    description: "Open the camera to capture a fresh leaf photo. Your browser may ask for camera permission.",
+  },
+  {
+    target: "analyze",
+    title: "Run the prediction",
+    description: "After selecting an image, choose Analyze image to get a predicted class and confidence score.",
+  },
+  {
+    target: "model-status",
+    title: "Review status and results",
+    description: "This panel shows the active model and API status. Your prediction and any available disease guidance appear below the upload panel.",
+  },
+];
 
 function apiUrl(path: string): string {
   if (!API_BASE_URL) return path;
@@ -107,6 +135,7 @@ function formatBytes(bytes: number): string {
 }
 
 function App() {
+  const isAboutPage = window.location.pathname.replace(/\/+$/, "") === "/about";
   const [theme, setTheme] = useState<"light" | "dark">(
     () => window.localStorage.getItem("plant-leaf-detection-theme") === "dark"
       ? "dark"
@@ -127,6 +156,7 @@ function App() {
   const [cameraOpen, setCameraOpen] = useState(false);
   const [cameraReady, setCameraReady] = useState(false);
   const [cameraError, setCameraError] = useState("");
+  const [tourStep, setTourStep] = useState<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const cameraButtonRef = useRef<HTMLButtonElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -138,6 +168,18 @@ function App() {
   useEffect(() => {
     window.localStorage.setItem("plant-leaf-detection-theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    document.title = isAboutPage
+      ? "About | Plant disease detection"
+      : "Plant disease detection";
+  }, [isAboutPage]);
+
+  useEffect(() => {
+    if (!isAboutPage && window.localStorage.getItem(TOUR_COMPLETED_KEY) !== "true") {
+      setTourStep(0);
+    }
+  }, [isAboutPage]);
 
   useEffect(() => {
     void refreshStatus();
@@ -363,20 +405,44 @@ function App() {
     }
   }
 
+  function finishTour() {
+    window.localStorage.setItem(TOUR_COMPLETED_KEY, "true");
+    setTourStep(null);
+  }
+
   return (
-    <div className="app-shell" data-theme={theme}>
+    <div
+      className="app-shell"
+      data-theme={theme}
+      onPointerMove={(event) => {
+        if (event.pointerType !== "mouse") return;
+
+        const bounds = event.currentTarget.getBoundingClientRect();
+        event.currentTarget.style.setProperty(
+          "--cursor-x",
+          `${event.clientX - bounds.left}px`,
+        );
+        event.currentTarget.style.setProperty(
+          "--cursor-y",
+          `${event.clientY - bounds.top}px`,
+        );
+      }}
+    >
       <header className="topbar">
-        <a className="brand" href="/" aria-label="Plant Leaf Detection home">
+        <a className="brand" href="/" aria-label="Plant disease detection home">
           <span className="brand-mark" aria-hidden="true">
             <LeafIcon />
           </span>
-          <span>Plant Leaf Detection</span>
+          <span>Plant disease detection</span>
         </a>
         <div className="topbar-right">
-          <span className={`connection-dot ${health?.service_ready ? "online" : ""}`} />
-          <span className="connection-label">
-            {apiError ? "API offline" : "API online"}
-          </span>
+          <a
+            className="about-link"
+            href={isAboutPage ? "/" : "/about"}
+            aria-current={isAboutPage ? "page" : undefined}
+          >
+            {isAboutPage ? "Detection" : "About"}
+          </a>
           <button
             className="icon-button theme-toggle"
             type="button"
@@ -386,6 +452,20 @@ function App() {
           >
             <ThemeIcon theme={theme} />
           </button>
+          {!isAboutPage && (
+            <button
+              className="tour-launch"
+              type="button"
+              onClick={() => setTourStep(0)}
+            >
+              <InfoIcon />
+              <span>Tour</span>
+            </button>
+          )}
+          <span className={`connection-dot ${health?.service_ready ? "online" : ""}`} />
+          <span className="connection-label">
+            {apiError ? "API offline" : "API online"}
+          </span>
           <button
             className="icon-button"
             type="button"
@@ -409,6 +489,8 @@ function App() {
       </header>
 
       <main>
+        {isAboutPage ? <AboutPage /> : (
+          <>
         {/*
         <section className="intro">
           <div className="eyebrow"><span /> PLANT HEALTH, AT A GLANCE</div>
@@ -427,7 +509,7 @@ function App() {
                 <span className="step-label">UPLOAD</span>
                 <h2>Choose your images</h2>
               </div>
-              <div className="upload-controls">
+              <div className="upload-controls" data-tour="settings">
                 <div className="mode-switch" role="group" aria-label="Upload mode">
                   <button
                     type="button"
@@ -474,6 +556,7 @@ function App() {
             />
             <div
               className={`drop-zone ${dragging ? "dragging" : ""} ${singleFile ? "has-preview" : ""}`}
+              data-tour="upload"
               onDragOver={(event) => {
                 event.preventDefault();
                 setDragging(true);
@@ -524,6 +607,7 @@ function App() {
               <button
                 ref={cameraButtonRef}
                 className="camera-button"
+                data-tour="camera"
                 type="button"
                 onClick={() => void openCamera()}
                 disabled={loading}
@@ -564,6 +648,7 @@ function App() {
 
             <button
               className="classify-button"
+              data-tour="analyze"
               type="button"
               disabled={!files.length || loading}
               onClick={() => void classify()}
@@ -577,7 +662,7 @@ function App() {
             <p className="privacy-note"><LockIcon /> Images are processed by your connected model API.</p>
           </div>
 
-          <aside className="insight-panel">
+          <aside className="insight-panel" data-tour="model-status">
             <div className="panel-heading insight-heading">
               <div>
                 <span className="step-label">MODEL</span>
@@ -692,6 +777,8 @@ function App() {
         <footer>
           <span>made by group 29 with love</span>
         </footer>
+          </>
+        )}
       </main>
       {cameraOpen && (
         <div
@@ -754,7 +841,271 @@ function App() {
           </section>
         </div>
       )}
+      {tourStep !== null && !isAboutPage && (
+        <GuidedTour
+          step={tourStep}
+          onStepChange={setTourStep}
+          onFinish={finishTour}
+        />
+      )}
     </div>
+  );
+}
+
+function GuidedTour({
+  step,
+  onStepChange,
+  onFinish,
+}: {
+  step: number;
+  onStepChange: (step: number) => void;
+  onFinish: () => void;
+}) {
+  const [targetRect, setTargetRect] = useState<{
+    top: number;
+    left: number;
+    width: number;
+    height: number;
+  } | null>(null);
+  const [cardPosition, setCardPosition] = useState<{ top: number; left: number } | null>(null);
+  const cardRef = useRef<HTMLElement>(null);
+  const nextButtonRef = useRef<HTMLButtonElement>(null);
+  const currentStep = TOUR_STEPS[step];
+
+  useEffect(() => {
+    const target = document.querySelector<HTMLElement>(
+      `[data-tour="${currentStep.target}"]`,
+    );
+    if (!target) {
+      setTargetRect(null);
+      return;
+    }
+    const targetElement: HTMLElement = target;
+
+    setTargetRect(null);
+    setCardPosition(null);
+    targetElement.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+
+    function updatePosition() {
+      const targetBounds = targetElement.getBoundingClientRect();
+      const padding = 7;
+      setTargetRect({
+        top: targetBounds.top - padding,
+        left: targetBounds.left - padding,
+        width: targetBounds.width + padding * 2,
+        height: targetBounds.height + padding * 2,
+      });
+
+      const cardBounds = cardRef.current?.getBoundingClientRect();
+      const cardHeight = cardBounds?.height ?? 210;
+      const cardWidth = Math.min(380, window.innerWidth - 32);
+      const top =
+        targetBounds.bottom + cardHeight + 16 <= window.innerHeight - 16
+          ? targetBounds.bottom + 16
+          : Math.max(16, targetBounds.top - cardHeight - 16);
+      const left = Math.max(
+        16,
+        Math.min(
+          targetBounds.left + targetBounds.width / 2 - cardWidth / 2,
+          window.innerWidth - cardWidth - 16,
+        ),
+      );
+      setCardPosition({ top, left });
+    }
+
+    const frame = window.requestAnimationFrame(updatePosition);
+    const settleTimer = window.setTimeout(updatePosition, 350);
+    window.addEventListener("scroll", updatePosition, true);
+    window.addEventListener("resize", updatePosition);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(settleTimer);
+      window.removeEventListener("scroll", updatePosition, true);
+      window.removeEventListener("resize", updatePosition);
+    };
+  }, [currentStep.target, step]);
+
+  useEffect(() => {
+    nextButtonRef.current?.focus();
+  }, [step]);
+
+  useEffect(() => {
+    function closeOnEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") onFinish();
+    }
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [onFinish]);
+
+  function handleKeyDown(event: React.KeyboardEvent<HTMLElement>) {
+    if (event.key !== "Tab") return;
+    const focusable = cardRef.current?.querySelectorAll<HTMLElement>(
+      "button:not(:disabled)",
+    );
+    if (!focusable?.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  return (
+    <div className="guided-tour">
+      <div className="tour-shade" aria-hidden="true" />
+      {targetRect && (
+        <div
+          className="tour-spotlight"
+          aria-hidden="true"
+          style={{
+            top: targetRect.top,
+            left: targetRect.left,
+            width: targetRect.width,
+            height: targetRect.height,
+          }}
+        />
+      )}
+      <section
+        ref={cardRef}
+        className="tour-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tour-title"
+        aria-describedby="tour-description"
+        style={{
+          top: cardPosition?.top ?? "50%",
+          left: cardPosition?.left ?? "50%",
+          visibility: cardPosition ? "visible" : "hidden",
+          transform: cardPosition ? undefined : "translate(-50%, -50%)",
+        }}
+        onKeyDown={handleKeyDown}
+      >
+        <div className="tour-card-top">
+          <span className="tour-counter">STEP {step + 1} OF {TOUR_STEPS.length}</span>
+          <button className="tour-skip" type="button" onClick={onFinish}>Skip tour</button>
+        </div>
+        <h2 id="tour-title">{currentStep.title}</h2>
+        <p id="tour-description">{currentStep.description}</p>
+        <div className="tour-progress" aria-hidden="true">
+          {TOUR_STEPS.map((item, index) => (
+            <span className={index <= step ? "active" : ""} key={item.target} />
+          ))}
+        </div>
+        <div className="tour-actions">
+          {step > 0 && (
+            <button
+              className="tour-back"
+              type="button"
+              onClick={() => onStepChange(step - 1)}
+            >
+              Back
+            </button>
+          )}
+          <button
+            ref={nextButtonRef}
+            className="tour-next"
+            type="button"
+            onClick={() => step === TOUR_STEPS.length - 1 ? onFinish() : onStepChange(step + 1)}
+          >
+            {step === TOUR_STEPS.length - 1 ? "Finish" : "Next"}
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function AboutPage() {
+  return (
+    <>
+      <section className="about-hero">
+        <div className="eyebrow"><span /> ABOUT THE PROJECT</div>
+        <h1>Healthier plants,<br /><span>one leaf at a time.</span></h1>
+        <p className="intro-copy">
+          Plant disease detection helps you explore what may be affecting a
+          plant from a photo of its leaf, using image-classification models and
+          practical disease guidance.
+        </p>
+        <a className="about-button" href="/">Try the detector <span aria-hidden="true">→</span></a>
+      </section>
+
+      <section className="about-grid" aria-label="Project information">
+        <article className="about-card about-card-wide">
+          <span className="section-label">HOW IT WORKS</span>
+          <h2>From leaf photo to useful insight</h2>
+          <ol className="about-steps">
+            <li><strong>Add a photo.</strong> Upload an image or capture one with your device camera.</li>
+            <li><strong>Choose a model.</strong> Compare predictions from the available classifiers.</li>
+            <li><strong>Review the result.</strong> See the predicted class, confidence, and available disease information and recommended actions.</li>
+          </ol>
+        </article>
+
+        <article className="about-card">
+          <span className="section-label">CLASSIFIERS</span>
+          <h2>Three models to explore</h2>
+          <ul className="about-models">
+            <li><strong>KNN + PCA</strong><span>A feature-based pipeline using dimensionality reduction and K-nearest neighbors.</span></li>
+            <li><strong>Custom CNN</strong><span>A convolutional neural network for leaf-image classification.</span></li>
+            <li><strong>MobileNetV2</strong><span>A convolutional neural network architecture adapted for image classification.</span></li>
+          </ul>
+        </article>
+
+        <article className="about-card">
+          <span className="section-label">IMAGE INPUT</span>
+          <h2>Upload or capture</h2>
+          <ul className="about-facts">
+            <li>JPEG, PNG, WEBP, and BMP images</li>
+            <li>Up to 10 MB per image</li>
+            <li>Single-image or batch predictions, with up to five images per batch</li>
+            <li>Camera capture where supported by your browser</li>
+          </ul>
+        </article>
+
+        <article className="about-card">
+          <span className="section-label">TECHNOLOGY</span>
+          <h2>Built for image inference</h2>
+          <p>
+            The interface is built with React, TypeScript, and Vite. A FastAPI
+            service runs the prediction models with TensorFlow/Keras and
+            scikit-learn, and provides the disease-guidance API.
+          </p>
+        </article>
+
+        <article className="about-card">
+          <span className="section-label">DATA &amp; LIMITATIONS</span>
+          <h2>Use results as a guide</h2>
+          <p>
+            Images are sent to the configured prediction API for processing.
+            The current backend does not require an account or database and
+            does not use persistent upload storage. Predictions are
+            classifications, not a substitute for expert diagnosis; image
+            quality and model limitations can affect results.
+          </p>
+        </article>
+
+        <article className="about-card about-card-wide about-resources">
+          <span className="section-label">DEVELOPER RESOURCES</span>
+          <h2>Explore the API</h2>
+          <p>
+            The API provides readiness and model information alongside
+            single-image and batch prediction endpoints. When running locally,
+            interactive API documentation is available at{" "}
+            <a href="http://127.0.0.1:8000/docs" target="_blank" rel="noreferrer">
+              127.0.0.1:8000/docs
+            </a>.
+          </p>
+        </article>
+      </section>
+
+      <footer>
+        <span>Plant disease detection</span>
+      </footer>
+    </>
   );
 }
 

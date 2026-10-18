@@ -3,6 +3,10 @@
 React + TypeScript interface built with Vite. It uses the FastAPI prediction
 API for readiness, model metadata, and single or batch image classification
 (up to five images per batch).
+The `/about` page describes the project, prediction workflow, available models,
+image limits, technology, and data handling.
+First-time visitors to the detector are guided through its main controls; the
+tour can be restarted at any time with the **Tour** button in the header.
 
 ## Local run
 
